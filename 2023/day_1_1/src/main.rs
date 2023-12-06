@@ -8,12 +8,22 @@ fn main() {
             char.is_numeric()
         }).collect();
 
-        String::new().push(numbers.first())).push(numbers.last())
+        let mut string = String::new();
+
+        if let Some(num) = numbers.first() {
+            string.push(*num);
+        }
+        if let Some(num) = numbers.last() {
+            string.push(*num);
+        }
+        string.parse::<i32>().unwrap()
     });
+
+    let sum: i32 = _numbers.sum();
 
     println!(
         "{:?}",
-        _numbers.clone().next()
+        sum
     );
 
 }
