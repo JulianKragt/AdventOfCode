@@ -1,21 +1,21 @@
 use std::fs;
+use std::io::Lines;
+use std::path::Iter;
 
 fn main() {
     let contents = fs::read_to_string("./input.txt").expect("couldn't read file");
     let lines = contents.lines();
     let _numbers = lines.map(|line| {
         let line = line
-            .replace("zero", "0")
-            .replace("one", "1")
-            .replace("two", "2")
-            .replace("three", "3")
-            .replace("four", "4")
-            .replace("five", "5")
-            .replace("six", "6")
-            .replace("seven", "7")
-            .replace("eight", "8")
-            .replace("nine", "9");
-
+            .replace("one", "o1e")
+            .replace("two", "t2o")
+            .replace("three", "th3ee")
+            .replace("four", "fo4r")
+            .replace("five", "f5ve")
+            .replace("six", "s6x")
+            .replace("seven", "se7en")
+            .replace("eight", "ei8ht")
+            .replace("nine", "n9ne");
 
         let numbers: Vec<char> = line.chars().filter(|char| {
             char.is_numeric()
@@ -31,7 +31,6 @@ fn main() {
         }
         string.parse::<i32>().unwrap()
     });
-
     let sum: i32 = _numbers.sum();
 
     println!(
